@@ -1,0 +1,21 @@
+{
+    "name": "jaroslav/urban-sports-shapes",
+    "description": "Job application test",
+    "type": "project",
+    "require": {
+		"ext-json": "*"
+    },
+    "require-dev": {
+        "tox2ik/elog": "^0.1.7",
+        "tox2ik/php-utility-functions": "^0.2.22"
+        "behat/behat": "^3.5",
+        "phpunit/phpunit": "^7.5"
+    },
+    "authors": [
+        {
+            "name": "Jaroslav Rakhmatoullin",
+            "email": "jazzoslav@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable"
+}
