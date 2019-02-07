@@ -7,7 +7,7 @@
     },
     "require-dev": {
         "tox2ik/elog": "^0.1.7",
-        "tox2ik/php-utility-functions": "^0.2.22"
+        "tox2ik/php-utility-functions": "^0.2.22",
         "behat/behat": "^3.5",
         "phpunit/phpunit": "^7.5"
     },
@@ -17,5 +17,15 @@
             "email": "jazzoslav@gmail.com"
         }
     ],
+		"autoload-dev": {
+			"psr-4": {
+				"": [ "test", "features/bootstrap" ]
+			}
+		},
+		"autoload": {
+			"psr-4": {
+				"GraphicEditor\\": "src"
+			}
+		},
     "minimum-stability": "stable"
 }
