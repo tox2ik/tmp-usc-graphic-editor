@@ -1,0 +1,10 @@
+default:
+    suites:
+        cli:
+            paths: [ '%paths.base%/../features/cli' ]
+            contexts:
+             - CliContext
+                #- CliContext:
+                #- Ckernel: '@kernel'
+                #- Cem: '@doctrine.orm.entity_manager'
+                #- CstampRepo: '@stamp_repository'
