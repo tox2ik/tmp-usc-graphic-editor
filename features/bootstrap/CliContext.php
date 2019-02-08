@@ -33,10 +33,6 @@ class CliContext implements \Behat\Behat\Context\Context
             Assert::assertEquals($message,  $re->getMessage(), 'Error message matches.');
             return;
         }
-
-        Assert::assertFalse('shoud not reach this code;');
-
-
-        throw new PendingException();
+        Assert::assertFalse('should not reach this code;');
     }
 }

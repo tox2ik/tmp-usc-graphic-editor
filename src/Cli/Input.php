@@ -28,12 +28,12 @@ use Symfony\Component\DependencyInjection\Compiler\RemoveUnusedDefinitionsPass;
  *
  *
  */
-class CliInput
+class Input
 {
 
     public $arguments = [];
 
-    public static function createFromArgv($params = []): CliInput
+    public static function createFromArgv($params = []): Input
     {
         $instance = new static();
 
@@ -48,8 +48,7 @@ class CliInput
 
     protected function parse($argNum, $argValue): void
     {
-        $this->arguments[$argNum] = $argNum;
-
+        $this->arguments[$argNum] = $argValue;
     }
 
 

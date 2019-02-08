@@ -3,11 +3,14 @@
 
 namespace GraphicEditor\Io;
 
-use GraphicEditor\Api\IoExeption;
 use GraphicEditor\Api\ShapeSaverContract;
+use GraphicEditor\Cli\Output;
 use GraphicEditor\Errors\NotImplementedException;
 
-class ShapeSaver implements ShapeSaverContract
+/**
+ * Display a shape as ascii on the console.
+ */
+class ConsoleShape implements ShapeSaverContract
 {
 
     /**
@@ -17,6 +20,12 @@ class ShapeSaver implements ShapeSaverContract
     {
         throw new NotImplementedException(__METHOD__);
     }
+
+
+    public function __toString() {
+        return 'kake';
+    }
+
 }
 
 

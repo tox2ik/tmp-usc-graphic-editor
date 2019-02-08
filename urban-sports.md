@@ -34,18 +34,23 @@ Clarifications:
 
 ### implementation plan
 
-- [ ] outline architecture {1: 60m}
-- [ ] autoloader {1: 30m} - decided not to.
-- [ ] cli-shapes cli {1: 30m}
-- [ ] build object graph {1: 40m}
-- [ ] ShapeContract {1: 10m}
+- [x] outline architecture {1: 60m}
+- [x] cli-shapes cli {1: 30m}
+- [x] ShapeContract {1: 10m}
+- [x] SquareShape {1: 10m}
+- [x] CircleShape {1: 10m}
+- [.] discover shape implmentation {1: 1h}
+- [.] ShapeSaver {1: 30m}
+
+dropped:
+
 - [ ] AbstractShape {1: 20m}
-- [ ] SquareShape {1: 10m}
-- [ ] CircleShape {1: 10m}
+- [ ] autoloader {1: 30m} - decided not to.
+- [ ] build object graph {1: 40m} - decided not to
 - [ ] Render aspects (border, color) {1: 2h}
-- [ ] discover shape implmentation {1: 1h}
+     - [ ] implement as sub nodes in a tree
+     - [ ] expose an iterator with ->render() in each element
 - [ ] handle errors (ExceptionHandler) {1: 30m}
-- [ ] ShapeSaver {1: 30m}
 - [ ] JsonShapeSaver: {1: 5m}
 
 #### Initial Estimation
@@ -85,7 +90,7 @@ Clarifications:
           | t |        |                                    |
           | i |        +------------------------------------+-------------
           | m |        |   AnyShape                         |
-          | e |        |     -> render()                    |   5.
+          | e |        |     -> render()                    |  5.
           |   |        |     -> serialize()                 |
           |   |        |     .[ShapeSaver]writer->write()   |
           \   /        |                                    |

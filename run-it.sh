@@ -33,7 +33,8 @@ while true; do
 	printf '\033]4;0;#686868\007'
 
 
-    if [[ $1 =~ .*\\.php ]]; then php $1
+    if [[ $1 = phpunit ]]; then "$@"
+    elif [[ $1 =~ .*\\.php ]]; then php $1
     elif [[ $1 =~ .*\\.sh ]]; then bash -l $1;
     #elif [[ $1 =~ phpunit ]]; then shift; phpunit "$@";
     else
