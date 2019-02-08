@@ -44,8 +44,12 @@ class OutOfBoxContext implements \Behat\Behat\Context\Context
     {
         $fstat = fstat($this->out);
         rewind($this->out);
-        $text = fread($this->out, $fstat['size']);
-        fseek($this->out, $fstat['size']);
+
+        $text = null;
+        if ($fstat['size']) {
+            $text = fread($this->out, $fstat['size']);
+            fseek($this->out, $fstat['size']);
+        }
         return $text;
     }
 
@@ -56,6 +60,7 @@ class OutOfBoxContext implements \Behat\Behat\Context\Context
     {
         $expected = $string->getStrings();
         $output = explode("\n", '' . $this->readOutput());
+        Assert::assertEquals(1, count($this->cli->shapes), 'Should print HelloShapes');
         Assert::assertEquals($expected, $output, 'Hello circle+square');
     }
 
@@ -92,7 +97,6 @@ class OutOfBoxContext implements \Behat\Behat\Context\Context
 
         foreach ($this->cli->shapes as $e) {
             Assert::assertInstanceOf(\GraphicEditor\Shapes\ShapeContract::class, $e);
-            //Assert::assertFalse($e instanceof HelloShape, 'Hello shape should ouly be used when no input is specified.');
         }
 
         Assert::assertEquals(2, count($this->cli->shapes), 'We created a circle renderer and a square renderer');

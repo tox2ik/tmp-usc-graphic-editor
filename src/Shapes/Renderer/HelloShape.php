@@ -18,10 +18,10 @@ class HelloShape
 
     }
 
-    function serialize(): string
-    {
 
-        return trim("
+    function serialize($output)
+    {
+        $output->out(trim("
 +----------------+
 |                |- ~ ~ ~ - ,
 |                |            ' ,
@@ -34,8 +34,7 @@ class HelloShape
           ,                       ,
             ,                  , '
               ' - , _ _ _ ,  '
-        ");
-
+        "));
     }
 
 }

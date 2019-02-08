@@ -25,7 +25,6 @@ class CircleShape implements ShapeContract
     public function serialize(Output $output): void
     {
         $output->out($this->body);
-
     }
 
     /** @inheritdoc */

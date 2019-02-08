@@ -98,11 +98,7 @@ class CliShapes
     public function loadRenderers(): void
     {
         $dd = glob(__DIR__ . '/../Shapes/*');
-
-
-
         $vanillaRendrerPaths = glob(__DIR__ . '/../Shapes/Renderer/*');
-
         $rendererPaths = array_merge($vanillaRendrerPaths, $this->additionalRenderers);
 
         // fixme: move to a factory (with the file-path-loop).
@@ -184,8 +180,11 @@ class CliShapes
                     $this->isShapeParamsValid($shape);
                 } catch (\RuntimeException $re) {
                     // $this->output->err('bad shape input: ');
-                    $badShapes[] = $shape;
+                    if ($shape) {
+                        $badShapes[] = $shape;
+                    }
                     break;
+
                 }
 
                 // fixme: a shape may be supported by several renderers, but we may not
@@ -208,6 +207,7 @@ class CliShapes
         }
 
         $isSpecialCaseNoInput = empty($processShapes) && empty($unknownShapes) && empty($badShapes);
+
 
         if (empty($this->shapes) && $isSpecialCaseNoInput) {
             $this->shapes[] = new HelloShape;
@@ -252,8 +252,6 @@ class CliShapes
     {
         $canvas = new \GraphicEditor\Io\ConsoleCanvas($this->shapes);
         $canvas->generatePreview($this->output);
-        //$this->output->out();
-
     }
 
 

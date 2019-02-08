@@ -26,15 +26,13 @@ class ConsoleCanvas
 
     public function export($output)
     {
-        //$output = '';
-        //$output .=
         foreach ($this->shapes as $shape) {
             $shape->serialize($output);
-
         }
 
+
+
         return $output;
-        // TODO: Implement write() method.
     }
 
     public function generatePreview(Output $output)
